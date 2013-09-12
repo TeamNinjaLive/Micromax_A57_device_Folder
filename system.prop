@@ -1,7 +1,8 @@
 #
-# system.prop for cooper
+# system.prop for surf
 #
-rild.libpath=/system/lib/libsec-ril.so
+
+rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -12,36 +13,116 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
+ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-ro.sf.lcd_density=120
-qemu.sf.lcd_density=120
-ro.opengles.version = 131072
+debug.sf.hw=1
+debug.composition.7x27A.type=mdp
+debug.composition.7x25A.type=mdp
+dalvik.vm.heapsize=24m
 
-# Wifi interface
-wifi.interface=wlan0
+#
+# system props for the cne module
+#
+persist.cne.UseCne=none
+persist.cne.bat.range.low.med=30
+persist.cne.bat.range.med.high=60
+persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
+persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
+persist.cne.bwbased.rat.sel=false
+persist.cne.snsr.based.rat.mgt=false
+persist.cne.bat.based.rat.mgt=false
+persist.cne.rat.acq.time.out=30000
+persist.cne.rat.acq.retry.tout=0
+persist.cne.fmc.mode=false
+persist.cne.fmc.init.time.out=30
+persist.cne.fmc.comm.time.out=130
+persist.cne.fmc.retry=false
 
-ro.telephony.ril_class=samsung
-mobiledata.interfaces=pdp0,gprs,ppp0,wlan0
+#
+# system props for the MM modules
+#
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=false
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
 
-#MM Camera
-ro.media.enc.vid.m4v.fps=5,15
-ro.media.enc.vid.m4v.width=176,320
-ro.media.enc.vid.m4v.height=144,240
-ro.media.enc.vid.m4v.bps=90000,770000
-ro.media.enc.vid.h264.fps=5,15
-ro.media.enc.vid.h264.width=176,320
-ro.media.enc.vid.h264.height=144,240
-ro.media.enc.vid.h264.bps=90000,770000
-ro.media.enc.vid.h263.fps=5,15
-ro.media.enc.vid.h263.width=176,320
-ro.media.enc.vid.h263.height=144,240
-ro.media.enc.vid.h263.bps=90000,770000
+#
+# system prop for opengles version
+#
+ro.opengles.version=131072
 
-ro.media.enc.vid.height.min = 144
-ro.media.enc.vid.height.max = 240
-ro.media.enc.vid.width.min = 176
-ro.media.enc.vid.width.max = 320
-ro.media.enc.vid.bps.min =90000
-ro.media.enc.vid.bps.max =770000
-ro.media.enc.vid.fps.min = 5
-ro.media.enc.vid.fps.max = 15
+#
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data.ds_fmc_app.mode=0
+
+#
+# system props for IMS module
+#
+persist.ims.regmanager.mode=0
+
+#
+# system prop for requesting Master role in incoming Bluetooth connection.
+#
+ro.bluetooth.request.master=true
+
+#
+# system prop for Bluetooth FTP profile
+#
+ro.qualcomm.bluetooth.ftp=true
+
+#
+# system prop for Bluetooth SAP profile
+#
+ro.qualcomm.bluetooth.sap=true
+
+#
+# system prop for Bluetooth Auto connect for remote initated connections
+#
+ro.bluetooth.remote.autoconnect=true
+
+#
+#system property for Bluetooth discoverability timeout in seconds
+#0: Always discoverable
+#debug.bt.discoverable_time=0
+
+#
+# System prop to enable/disable OMH. Enabled by default
+#
+persist.omh.enabled=1
+
+#System prop to enable ehrpd capability
+ro.config.ehrpd=true
+
+# System property for cabl
+ro.qualcomm.cabl=1
+
+#
+#System prop to determine availability of
+#analog fm path
+#
+ro.fm.analogpath.supported=true
+
+#
+#System property for FM transmitter
+#
+ro.fm.transmitter=false
+
+#
+#System property for single instance recording
+#
+ro.fm.mulinst.recording.support=false
+#
+#System property for msm 
+#
+ro.hw_plat=7x27a
+
+#
+# system props for SD card emulation of emmc partition
+#
+ro.emmc.sdcard.partition=0
+#
